@@ -35,16 +35,16 @@
 						var time = scope.initTime.split(':');
 
 						if (scope.showMeridian){
-							if (time[0] === 0){
+							if (time[0] == 0){
 								scope.hour = 12;
 								scope.meridian = 'AM';
-							} else if (time[0] === 12){
+							} else if (time[0] == 12){
 								scope.hour = 12;
 								scope.meridian = 'PM';
 							} else if (time[0] > 12 && time[0] < 22){
 								scope.hour = '0' + (time[0] - 12);
 								scope.meridian = 'PM';
-							} else if (time[0] >= 22) {
+							} else if (time[0] >= 22){
 								scope.hour = time[0] - 12;
 								scope.meridian = 'PM';
 							} else {
