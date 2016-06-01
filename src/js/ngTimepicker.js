@@ -8,7 +8,12 @@
 				scope.showMeridian = attrs.showMeridian || false;
 				scope.meridian = attrs.meridian || 'AM';
 				scope.theme = attrs.theme || '';
-				scope.editable = attrs.editable || true;
+				
+				if (!attrs.editable || attrs.editable === 'false'){
+					scope.editable = false;
+				} else {
+					scope.editable = true;
+				}
 			};
 
 			var getPosition = function(element){
@@ -35,10 +40,10 @@
 						var time = scope.initTime.split(':');
 
 						if (scope.showMeridian){
-							if (time[0] == 0){
+							if (time[0] === 0){
 								scope.hour = 12;
 								scope.meridian = 'AM';
-							} else if (time[0] == 12){
+							} else if (time[0] === 12){
 								scope.hour = 12;
 								scope.meridian = 'PM';
 							} else if (time[0] > 12 && time[0] < 22){
