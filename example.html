@@ -5,13 +5,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="src/css/ngTimepicker.css">
 </head>
-<body ng-controller="Ctrl as ctrl">
+<body ng-controller="controller">
 	<div style="clear:both">
-		<ng-timepicker ng-model="ctrl.time"></ng-timepicker>{{ ctrl.time }}
+		<ng-timepicker time="time"></ng-timepicker>{{ time }}
 	</div>
 
 	<div style="clear:both">
-		<ng-timepicker ng-model="ctrl.time2" theme="red" show-meridian="true" editable="false"></ng-timepicker>{{ ctrl.time2 }}
+		<ng-timepicker time="time2" theme="red" show-meridian="true"></ng-timepicker>{{ time2 }}
+	</div>
+
+	<div style="clear:both">
+		<ng-timepicker time="time3" theme="red" show-meridian="false"></ng-timepicker>{{ time3 }}
+	</div>
+
+	<div style="clear:both">
+		<ng-timepicker time="time4" theme="red" show-meridian="true"></ng-timepicker>{{ time4 }}
 	</div>
 
 
@@ -20,8 +28,12 @@
 <script type="text/javascript" src="src/js/ngTimepicker.js"></script>
 <script type="text/javascript">
 var app = angular.module('app', ['jkuri.timepicker']);
-app.controller('Ctrl', [function() { 
-	
+
+app.controller('controller', ['$scope', function($scope) {
+    $scope.time = '12:00';
+    $scope.time2 = '17:00';
+    $scope.time3 = '10:00';
+    $scope.time4 = '30:00';
 }]);
 </script>
 </body>
