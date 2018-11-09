@@ -117,6 +117,9 @@
 					// show the box
 					scope.showTimepicker = function () {
 						scope.opened = true;
+						var position = getPosition(element[0]);
+						scope.left = position.left+'px';
+						scope.top = position.top+'px';
 					};
 
 					// used when pressing an up key or hitting the up button on an hour
